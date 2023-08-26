@@ -15,7 +15,7 @@ public class task extends JPanel{
 	
 	task(){
 		this.setPreferredSize(new Dimension(20, 40));
-		this.setBackground(Color.red);
+		this.setBackground(Color.gray);
 		this.setLayout(new BorderLayout());
 		
 		index = new JLabel("");
@@ -28,7 +28,7 @@ public class task extends JPanel{
 		
 		name = new JTextField("Your task here");
 		name.setBorder(BorderFactory.createEmptyBorder());
-		name.setBackground(Color.cyan);
+		name.setBackground(Color.magenta);
 		
 		this.add(name, BorderLayout.CENTER);
 		
@@ -43,12 +43,15 @@ public class task extends JPanel{
 		this.revalidate();
 	}
 	public void changeState() {
-		this.setBackground(Color.darkGray);
-		name.setBackground(Color.DARK_GRAY);
+		this.setBackground(Color.gray);
+		name.setBackground(Color.gray);
 		checked = true;
 	}
 	public JButton getDone() {
 		return done;
 	}
+	public boolean isChecked() {
+        return checked;
+    }
 	
 }
