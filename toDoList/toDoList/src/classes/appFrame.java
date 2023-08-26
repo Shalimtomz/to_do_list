@@ -26,6 +26,7 @@ public class appFrame extends JFrame{
 		this.add(list, BorderLayout.CENTER);
 		
 		addTask = btnPanel.getAddTask();
+		
 		clear = btnPanel.getClear();
 		
 		addListeners();
@@ -51,5 +52,27 @@ public class appFrame extends JFrame{
 				revalidate();
 			}
 		});
+		
+		clear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getClear();
+            }
+        });
 	}
+	 public void getClear() {
+	        Component[] listItems = list.getComponents();
+
+	        for (Component listItem : listItems) {
+	            if (listItem instanceof task) {
+	                task t = (task) listItem;
+	                if (t.isChecked()) {
+	                    list.remove(t);
+	                }
+	            }
+	        }
+
+	        list.updateNum();
+	        revalidate();
+	    }
 }
